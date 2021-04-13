@@ -6,3 +6,10 @@ pymysql
 flask-sqlalchemy
 flask_marshmallow
 flask-bcrypt
+pandas
+spacy
+scikit-learn
+gensim==3.6.0
+googlemaps
+https://github.com/explosion/spacy-models/releases/download/ja_core_news_md-3.0.0/ja_core_news_md-3.0.0.tar.gz
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.0.0/en_core_web_sm-3.0.0.tar.gz

@@ -12,6 +12,7 @@ ARG DB_HOST=${DB_HOST}
 ENV DB_HOST ${DB_HOST}
 ARG DB_NAME=${DB_NAME}
 ENV DB_NAME ${DB_NAME}
+ENV MAPS_API_KEY ${MAPS_API_KEY}
 
 RUN pip install numpy
 RUN pip install -r requirements.txt

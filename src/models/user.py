@@ -15,6 +15,11 @@ class User(db.Model):
     return db.session.query(User)\
       .filter(User.email == email)\
         .one()
+
+  def getByID(id):
+    return db.session.query(User)\
+      .filter(User.id == id)\
+        .one()
   
   def post(uuid, email, password):
     new_user = User(id=uuid, email=email, password=password)
