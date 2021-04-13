@@ -16,6 +16,7 @@ ENV MAPS_API_KEY ${MAPS_API_KEY}
 
 RUN pip install numpy
 RUN pip install -r requirements.txt
+RUN pip install spacy[ja]
 
 COPY src/ /src/
 
