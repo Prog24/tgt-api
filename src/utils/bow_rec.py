@@ -51,7 +51,7 @@ class BowRec:
     nlp = spacy.load('ja_core_news_md')
     # load word2vec model
     dir_path = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(dir_path, 'latest-ja-word2vec-gensim-model/word2vec.gensim.model')
+    model_path = os.path.join(dir_path, '../../word2vec-model/word2vec.gensim.model')
     model = Word2Vec.load(model_path)
     # load HappyRecTable
     dir_path = os.path.dirname(os.path.abspath(__file__))
