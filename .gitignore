@@ -23,3 +23,6 @@ htmlcov/
 .coverage
 .coverage.*
 *,cover
+
+src/utils/trained_data/*
+!src/utils/trained_data/.gitkeep

@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   app:
@@ -15,6 +15,7 @@ services:
       DB_PASSWORD: password
       DB_HOST: mysql
       DB_NAME: sample
+      MAPS_API_KEY: API_KEY
       TZ: Asia/Tokyo
       FLASK_APP: run.py
     links:
@@ -22,21 +23,21 @@ services:
     networks:
       - sample
     command: flask run --host 0.0.0.0 --port 5000 --reload
-  
+
   mysql:
     image: mysql:8.0
     env_file: ./mysql/mysql.env
     environment:
       TZ: Asia/Tokyo
     ports:
-      - '3306:3306'
+      - "3306:3306"
     volumes:
       - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
       - mysqldata:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
     networks:
       - sample
-  
+
   migration:
     image: flyway/flyway
     depends_on:

@@ -1,5 +1,4 @@
 FROM python:3.6
-
 ARG project_dir=/src/
 ADD src/requirements.txt ${project_dir}
 WORKDIR ${project_dir}
@@ -12,9 +11,11 @@ ARG DB_HOST=${DB_HOST}
 ENV DB_HOST ${DB_HOST}
 ARG DB_NAME=${DB_NAME}
 ENV DB_NAME ${DB_NAME}
+ENV MAPS_API_KEY ${MAPS_API_KEY}
 
 RUN pip install numpy
 RUN pip install -r requirements.txt
+RUN pip install spacy[ja]
 
 COPY src/ /src/
 

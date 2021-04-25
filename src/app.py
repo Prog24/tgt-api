@@ -9,6 +9,7 @@ from .config import Config
 
 from src.apis.diary import DiaryAPI
 from src.apis.diaryEdit import DiaryEditAPI
+from src.apis.happySpots import HappySpotAPI
 from src.apis.auth import (LoginAPI, RegisterAPI, RefreshAPI)
 
 def create_app():
@@ -27,6 +28,7 @@ def create_app():
 
   api.add_resource(DiaryAPI, '/diary')
   api.add_resource(DiaryEditAPI, '/diary/<diary_id>')
+  api.add_resource(HappySpotAPI, '/spots')
   api.add_resource(LoginAPI, '/auth/login')
   api.add_resource(RegisterAPI, '/auth/register')
   api.add_resource(RefreshAPI, '/auth/refresh')
