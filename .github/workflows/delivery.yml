@@ -15,7 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+      - name: Checkout the trained model
+        uses: actions/checkout@v2
+        with:
+          repository: Prog24/tgt-model
+          token: ${{ secrets.PAT }}
+          path: src/utils/trained_data
       - name: GCP Authenticate
         uses: google-github-actions/setup-gcloud@master
         with:
