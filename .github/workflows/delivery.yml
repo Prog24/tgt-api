@@ -37,6 +37,7 @@ jobs:
             --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
             --build-arg DB_HOST=${{ secrets.DB_HOST }} \
             --build-arg DB_NAME=${{ secrets.DB_NAME }} \
+            --build-arg MAPS_API_KEY=${{ secrets.MAPS_API_KEY }} \
             -t $IMAGE .
       - name: Push the docker image
         run: docker push $IMAGE
