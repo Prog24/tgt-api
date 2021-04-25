@@ -1,7 +1,4 @@
 FROM python:3.6
-RUN wget http://public.shiroyagi.s3.amazonaws.com/latest-ja-word2vec-gensim-model.zip
-RUN unzip latest-ja-word2vec-gensim-model.zip -d word2vec-model
-
 ARG project_dir=/src/
 ADD src/requirements.txt ${project_dir}
 WORKDIR ${project_dir}

@@ -5,9 +5,7 @@ from flask_jwt_extended import (
 )
 from src.models.user import User, user_schema
 
-from src.utils.stress_predict import StressPredict
-from src.utils.bow_rec import BowRec
-import pickle
+from src.utils.spot_rec import SpotRec
 import os
 import googlemaps
 
@@ -29,17 +27,6 @@ class HappySpotAPI(Resource):
     geo_location = {}
     for data in nearby['results']:
       geo_location[data['place_id']] = client.place(data['place_id'], language='ja')
-    searchData = []
-    for key in geo_location:
-      if 'reviews' in geo_location[key]['result']:
-        searchData.append({'locationName': [geo_location[key]['result']['name']], 'locationType': geo_location[key]['result']['types']})
-    happy_scores = BowRec.predict(user_name, geo_location)
-    stress_scores = StressPredict.predict_stress_level(searchData)
-    out_score = {}
-    for key in happy_scores:
-      if happy_scores[key] == 0:
-        out_score[key] = stress_scores[key]
-      else:
-        out_score[key] = (happy_scores[key] + stress_scores[key]) / 2
-    return make_response(jsonify({'message':out_score}), 200)
+    out_data = SpotRec.pred_spot_score(user_name, geo_location)
+    return make_response(jsonify({'message': out_data}), 200)
 
